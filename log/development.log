@@ -1,0 +1,502 @@
+
+
+Started GET "/assets/rails.png" for 68.207.236.160 at 2016-06-15 15:36:04 -0400
+
+
+Started GET "/assets/rails.png" for 68.207.236.160 at 2016-06-15 15:36:16 -0400
+  [1m[36m (16.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (15.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateMovies (20160615193643)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "image" varchar(255), "release_year" varchar(255), "plot" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160615193643"]]
+  [1m[35m (6.9ms)[0m  commit transaction
+Migrating to CreateActors (20160615193718)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "actors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "image" varchar(255), "bio" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160615193718"]]
+  [1m[35m (5.0ms)[0m  commit transaction
+Migrating to CreateParts (20160615193730)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "parts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_id" integer, "actor_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_parts_on_movie_id" ON "parts" ("movie_id")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_parts_on_movie_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_parts_on_movie_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_parts_on_actor_id" ON "parts" ("actor_id")[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160615193730"]]
+  [1m[36m (4.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_parts_on_actor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_parts_on_actor_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_parts_on_movie_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_parts_on_movie_id' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "George Timothy Clooney is an American actor, writer, producer, director, and activist. He has received three Golden Globe Awards for his ..."], ["created_at", "2016-06-15 19:48:52.325512"], ["first_name", "George"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/george-clooney.jpg"], ["last_name", "Clooney"], ["updated_at", "2016-06-15 19:48:52.325512"]]
+  [1m[35m (2.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Matthew Paige \"Matt\" Damon is an American actor, voice actor, screenwriter, producer, and philanthropist."], ["created_at", "2016-06-15 19:48:52.334996"], ["first_name", "Matt"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/matt-damon.jpg"], ["last_name", "Damon"], ["updated_at", "2016-06-15 19:48:52.334996"]]
+  [1m[36m (2.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "William Bradley \"Brad\" Pitt is an American actor and producer. He has received a Golden Globe Award, a Screen Actors Guild Award, and thr..."], ["created_at", "2016-06-15 19:48:52.340528"], ["first_name", "Brad"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/brad-pitt.jpg"], ["last_name", "Pitt"], ["updated_at", "2016-06-15 19:48:52.340528"]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Elliott Gould is an American actor. He began acting in Hollywood films during the 1960s, and has remained prolific ever since. "], ["created_at", "2016-06-15 19:48:52.345684"], ["first_name", "Elliot"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/elliot-gould.jpg"], ["last_name", "Gould"], ["updated_at", "2016-06-15 19:48:52.345684"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Julia Fiona Roberts is an American actress and producer. She became a Hollywood star after headlining the romantic comedy Pretty Woman, w..."], ["created_at", "2016-06-15 19:48:52.351258"], ["first_name", "Julia"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/julia-roberts.jpg"], ["last_name", "Roberts"], ["updated_at", "2016-06-15 19:48:52.351258"]]
+  [1m[35m (2.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Mark Robert Michael Wahlberg is an American actor, producer, model, and former rapper. He was known as Marky Mark in his earlier years, b..."], ["created_at", "2016-06-15 19:48:52.356705"], ["first_name", "Mark"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/mark-wahlberg.jpg"], ["last_name", "Wahlberg"], ["updated_at", "2016-06-15 19:48:52.356705"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Marion Cotillard is a French actress, singer, songwriter, environmentalist and spokesperson for Greenpeace."], ["created_at", "2016-06-15 19:48:52.363365"], ["first_name", "Marion"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/marion-cotillard.jpg"], ["last_name", "Cotillard"], ["updated_at", "2016-06-15 19:48:52.363365"]]
+  [1m[35m (2.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Laurence John Fishburne III is an American actor, playwright, director, and producer. He is best known for his roles as Morpheus in the M..."], ["created_at", "2016-06-15 19:48:52.368950"], ["first_name", "Laurence"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/laurence-fishburne.jpg"], ["last_name", "Fishburne"], ["updated_at", "2016-06-15 19:48:52.368950"]]
+  [1m[36m (2.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "David Jude Heyworth Law, known professionally as Jude Law, is an English actor, film producer and director. He began acting with the Nati..."], ["created_at", "2016-06-15 19:48:52.374373"], ["first_name", "Jude"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/jude-law.jpg"], ["last_name", "Law"], ["updated_at", "2016-06-15 19:48:52.374373"]]
+  [1m[35m (12.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Gwyneth Kate Paltrow is an American actress, singer, and food writer. Paltrow gained early notice for her work in films such as the psych..."], ["created_at", "2016-06-15 19:48:52.389467"], ["first_name", "Gwyneth"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/gwyneth-paltrow.jpg"], ["last_name", "Paltrow"], ["updated_at", "2016-06-15 19:48:52.389467"]]
+  [1m[36m (2.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Kate Elizabeth Winslet, CBE, is an English actress and singer. She is the recipient of an Academy Award, an Emmy Award, three Golden Glob..."], ["created_at", "2016-06-15 19:48:52.394928"], ["first_name", "Kate"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/kate-winslet.jpg"], ["last_name", "Winslet"], ["updated_at", "2016-06-15 19:48:52.394928"]]
+  [1m[35m (2.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Bryan Lee Cranston is an American actor, voice actor, screenwriter, director and producer. Cranston is best known for portraying Walter W..."], ["created_at", "2016-06-15 19:48:52.400481"], ["first_name", "Bryan"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/bryan-cranston.jpg"], ["last_name", "Cranston"], ["updated_at", "2016-06-15 19:48:52.400481"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Leonardo Wilhelm DiCaprio is an American actor and film producer. He has been nominated for ten Golden Globe Awards, winning two, and fo..."], ["created_at", "2016-06-15 19:48:52.405710"], ["first_name", "Leonardo"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/leonardo-dicaprio.jpg"], ["last_name", "DiCaprio"], ["updated_at", "2016-06-15 19:48:52.405710"]]
+  [1m[35m (2.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "John Joseph \"Jack\" Nicholson is an American actor, film director, producer, and writer. Throughout his career, Nicholson has portrayed un..."], ["created_at", "2016-06-15 19:48:52.410982"], ["first_name", "Jack"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/jack-nicholson.jpg"], ["last_name", "Nicholson"], ["updated_at", "2016-06-15 19:48:52.410982"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Joseph Leonard Gordon-Levitt is an American actor and filmmaker. As a child star, he appeared in the films A River Runs Through It, Angel..."], ["created_at", "2016-06-15 19:48:52.415655"], ["first_name", "Joseph"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/joseph-gordon-levitt.jpg"], ["last_name", "Gordon-Levitt"], ["updated_at", "2016-06-15 19:48:52.415655"]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Edward Thomas \"Tom\" Hardy is an English actor. Hardy's notable film roles include the science fiction film Star Trek: Nemesis, the Guy Ri..."], ["created_at", "2016-06-15 19:48:52.421096"], ["first_name", "Tom"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/tom-hardy.jpg"], ["last_name", "Hardy"], ["updated_at", "2016-06-15 19:48:52.421096"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Cillian Murphy is an Irish actor of stage and screen. Since making his debut in his home country in the late 1990s, Murphy has also becom..."], ["created_at", "2016-06-15 19:48:52.428104"], ["first_name", "Cillian"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/cillian-murphy.jpg"], ["last_name", "Murphy"], ["updated_at", "2016-06-15 19:48:52.428104"]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Christian Charles Philip Bale is an English actor. He has starred in both blockbuster films and smaller projects from independent produce..."], ["created_at", "2016-06-15 19:48:52.433463"], ["first_name", "Christian"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/christian-bale.jpg"], ["last_name", "Bale"], ["updated_at", "2016-06-15 19:48:52.433463"]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Morgan Freeman is an American actor, film director, and narrator. Freeman has received Academy Award nominations for his performances in ..."], ["created_at", "2016-06-15 19:48:52.438552"], ["first_name", "Morgan"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/morgan-freeman.jpg"], ["last_name", "Freeman"], ["updated_at", "2016-06-15 19:48:52.438552"]]
+  [1m[35m (2.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Robert John Downey Jr. is an American actor, producer, and singer. Making his screen debut at the age of five, appearing in his father Ro..."], ["created_at", "2016-06-15 19:48:52.443771"], ["first_name", "Robert"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/rdj.jpg"], ["last_name", "Downey Jr."], ["updated_at", "2016-06-15 19:48:52.443771"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Terrence Dashon Howard is an American actor and singer. Having his first major role in the 1995 film Dead Presidents, and Mr. Holland's O..."], ["created_at", "2016-06-15 19:48:52.448930"], ["first_name", "Terrence"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/terrence-howard.jpg"], ["last_name", "Howard"], ["updated_at", "2016-06-15 19:48:52.448930"]]
+  [1m[35m (2.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Jeffrey Leon \"Jeff\" Bridges is an American actor, country musician, and producer. He comes from a well-known acting family and began his ..."], ["created_at", "2016-06-15 19:48:52.454101"], ["first_name", "Jeff"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/jeff-bridges.jpg"], ["last_name", "Bridges"], ["updated_at", "2016-06-15 19:48:52.454101"]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Rachel Anne McAdams is a Canadian actress. After graduating from a four-year theatre program at York University in 2001, she initially wo..."], ["created_at", "2016-06-15 19:48:52.459743"], ["first_name", "Rachel"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/rachel-mcadams.jpg"], ["last_name", "McAdams"], ["updated_at", "2016-06-15 19:48:52.459743"]]
+  [1m[35m (2.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Mark Strong is an English film and television actor. He is best known for his role in the television series Our Friends in the North and ..."], ["created_at", "2016-06-15 19:48:52.465080"], ["first_name", "Mark"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/mark-strong.jpg"], ["last_name", "Strong"], ["updated_at", "2016-06-15 19:48:52.465080"]]
+  [1m[36m (2.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Diane Lane is an American actress. Born and raised in New York City, Lane made her screen debut in George Roy Hill's 1979 film A Little R..."], ["created_at", "2016-06-15 19:48:52.470752"], ["first_name", "Diane"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/diane-lane.jpg"], ["last_name", "Lane"], ["updated_at", "2016-06-15 19:48:52.470752"]]
+  [1m[35m (2.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Ellen Philpotts-Page, known professionally as Ellen Page, is a Canadian actress. She started her career in Canada with roles in the telev..."], ["created_at", "2016-06-15 19:48:52.476455"], ["first_name", "Ellen"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/ellen-page.jpg"], ["last_name", "Page"], ["updated_at", "2016-06-15 19:48:52.476455"]]
+  [1m[36m (10.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Anne Jacqueline Hathaway is an American actress, singer, and producer. After several stage roles, she appeared in the 1999 television ser..."], ["created_at", "2016-06-15 19:48:52.491549"], ["first_name", "Anne"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/anne-hathaway.jpg"], ["last_name", "Hathaway"], ["updated_at", "2016-06-15 19:48:52.491549"]]
+  [1m[35m (2.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Sir Michael Caine, CBE is an English actor and author. Renowned for his distinctive Cockney accent, Caine has appeared in over 115 films ..."], ["created_at", "2016-06-15 19:48:52.497309"], ["first_name", "Michael"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/michael-caine.jpg"], ["last_name", "Caine"], ["updated_at", "2016-06-15 19:48:52.497309"]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Natalie Portman is an Israeli-born American actress, producer, and director. Her first role was in the 1994 action thriller Léon: The Pr..."], ["created_at", "2016-06-15 19:48:52.503687"], ["first_name", "Natalie"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/natalie-portman.png"], ["last_name", "Portman"], ["updated_at", "2016-06-15 19:48:52.503687"]]
+  [1m[35m (3.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  INSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["bio", "Clive Owen is an English actor who first gained recognition in the United Kingdom for playing the lead role in the ITV series Chancer fro..."], ["created_at", "2016-06-15 19:48:52.510772"], ["first_name", "Clive"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/clive-owen.jpg"], ["last_name", "Owen"], ["updated_at", "2016-06-15 19:48:52.510772"]]
+  [1m[36m (3.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "actors" ("bio", "created_at", "first_name", "image", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["bio", "Matthew David McConaughey is an American actor and producer. He first gained notice for his breakout role in the coming-of-age comedy Daz..."], ["created_at", "2016-06-15 19:48:52.517503"], ["first_name", "Matthew"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/matthew-mcconaughey.jpg"], ["last_name", "McConaughey"], ["updated_at", "2016-06-15 19:48:52.517503"]]
+  [1m[35m (4.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2016-06-15 19:48:52.537436"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/oceans-11.jpg"], ["plot", "Dapper Danny Ocean (George Clooney) is a man of action. Less than 24 hours into his parole from a New Jersey penitentiary, the wry, chari..."], ["release_year", "2001"], ["title", "Ocean's 11"], ["updated_at", "2016-06-15 19:48:52.537436"]]
+  [1m[36m (2.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-06-15 19:48:52.544623"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/the-perfect-storm.jpg"], ["plot", "Based on a true story, the film tells of the courageous men and women who risk their lives every working day, pitting their fishing boats..."], ["release_year", "2000"], ["title", "The Perfect Storm"], ["updated_at", "2016-06-15 19:48:52.544623"]]
+  [1m[35m (2.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2016-06-15 19:48:52.549774"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/contagion.jpg"], ["plot", "When Beth Emhoff (Gwyneth Paltrow) returns to Minnesota from a Hong Kong business trip, she attributes the malaise she feels to jet lag ..."], ["release_year", "2011"], ["title", "Contagion"], ["updated_at", "2016-06-15 19:48:52.549774"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-06-15 19:48:52.554915"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/the-departed.jpg"], ["plot", "South Boston cop Billy Costigan (Leonardo DiCaprio) goes under cover to infiltrate the organization of gangland chief Frank Costello (Jac..."], ["release_year", "2006"], ["title", "The Departed"], ["updated_at", "2016-06-15 19:48:52.554915"]]
+  [1m[35m (2.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2016-06-15 19:48:52.560286"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/inception.jpg"], ["plot", "Dom Cobb (Leonardo DiCaprio) is a thief with the rare ability to enter people's dreams and steal their secrets from their subconscious ..."], ["release_year", "2010"], ["title", "Inception"], ["updated_at", "2016-06-15 19:48:52.560286"]]
+  [1m[36m (4.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-06-15 19:48:52.567654"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/dark-knight-rises.jpg"], ["plot", "It has been eight years since Batman (Christian Bale), in collusion with Commissioner Gordon (Gary Oldman), vanished into the night. Assu..."], ["release_year", "2012"], ["title", "The Dark Knight Rises"], ["updated_at", "2016-06-15 19:48:52.567654"]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2016-06-15 19:48:52.572966"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/iron-man.jpg"], ["plot", "A billionaire industrialist and genius inventor, Tony Stark (Robert Downey Jr.), is conducting weapons tests overseas, but terrorists kid..."], ["release_year", "2008"], ["title", "Iron Man"], ["updated_at", "2016-06-15 19:48:52.572966"]]
+  [1m[36m (7.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-06-15 19:48:52.583659"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/sherlock-holmes.jpg"], ["plot", "When a string of brutal murders terrorizes London, it doesn't take long for legendary detective Sherlock Holmes (Robert Downey Jr.) and ..."], ["release_year", "2009"], ["title", "Sherlock Holmes"], ["updated_at", "2016-06-15 19:48:52.583659"]]
+  [1m[35m (2.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", "2016-06-15 19:48:52.588966"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/closer.jpg"], ["plot", "Alice (Natalie Portman), who has moved to London, meets Dan (Jude Law) on the street. While looking at him, a taxi hits her. After taking ..."], ["release_year", "2004"], ["title", "Closer"], ["updated_at", "2016-06-15 19:48:52.588966"]]
+  [1m[36m (6.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "movies" ("created_at", "image", "plot", "release_year", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2016-06-15 19:48:52.597917"], ["image", "http://s3.amazonaws.com/codecademy-content/courses/learn-rails/img/interstellar.jpg"], ["plot", "In Earth's future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand (Michael Cai..."], ["release_year", "2014"], ["title", "Interstellar"], ["updated_at", "2016-06-15 19:48:52.597917"]]
+  [1m[35m (9.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 1], ["created_at", "2016-06-15 19:48:52.667930"], ["movie_id", 1], ["updated_at", "2016-06-15 19:48:52.667930"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 2], ["created_at", "2016-06-15 19:48:52.671377"], ["movie_id", 1], ["updated_at", "2016-06-15 19:48:52.671377"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 3], ["created_at", "2016-06-15 19:48:52.672464"], ["movie_id", 1], ["updated_at", "2016-06-15 19:48:52.672464"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 4], ["created_at", "2016-06-15 19:48:52.673523"], ["movie_id", 1], ["updated_at", "2016-06-15 19:48:52.673523"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 5], ["created_at", "2016-06-15 19:48:52.674601"], ["movie_id", 1], ["updated_at", "2016-06-15 19:48:52.674601"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (3.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 1], ["created_at", "2016-06-15 19:48:52.679760"], ["movie_id", 2], ["updated_at", "2016-06-15 19:48:52.679760"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 6], ["created_at", "2016-06-15 19:48:52.684552"], ["movie_id", 2], ["updated_at", "2016-06-15 19:48:52.684552"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 25], ["created_at", "2016-06-15 19:48:52.685918"], ["movie_id", 2], ["updated_at", "2016-06-15 19:48:52.685918"]]
+  [1m[35m (2.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 7], ["created_at", "2016-06-15 19:48:52.690729"], ["movie_id", 3], ["updated_at", "2016-06-15 19:48:52.690729"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 8], ["created_at", "2016-06-15 19:48:52.693166"], ["movie_id", 3], ["updated_at", "2016-06-15 19:48:52.693166"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 9], ["created_at", "2016-06-15 19:48:52.694249"], ["movie_id", 3], ["updated_at", "2016-06-15 19:48:52.694249"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 10], ["created_at", "2016-06-15 19:48:52.695315"], ["movie_id", 3], ["updated_at", "2016-06-15 19:48:52.695315"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 11], ["created_at", "2016-06-15 19:48:52.696395"], ["movie_id", 3], ["updated_at", "2016-06-15 19:48:52.696395"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 12], ["created_at", "2016-06-15 19:48:52.697479"], ["movie_id", 3], ["updated_at", "2016-06-15 19:48:52.697479"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 4], ["created_at", "2016-06-15 19:48:52.698534"], ["movie_id", 3], ["updated_at", "2016-06-15 19:48:52.698534"]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 2], ["created_at", "2016-06-15 19:48:52.699601"], ["movie_id", 3], ["updated_at", "2016-06-15 19:48:52.699601"]]
+  [1m[35m (2.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 2], ["created_at", "2016-06-15 19:48:52.704640"], ["movie_id", 4], ["updated_at", "2016-06-15 19:48:52.704640"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 13], ["created_at", "2016-06-15 19:48:52.706974"], ["movie_id", 4], ["updated_at", "2016-06-15 19:48:52.706974"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 14], ["created_at", "2016-06-15 19:48:52.708046"], ["movie_id", 4], ["updated_at", "2016-06-15 19:48:52.708046"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 6], ["created_at", "2016-06-15 19:48:52.709111"], ["movie_id", 4], ["updated_at", "2016-06-15 19:48:52.709111"]]
+  [1m[35m (2.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 13], ["created_at", "2016-06-15 19:48:52.713620"], ["movie_id", 5], ["updated_at", "2016-06-15 19:48:52.713620"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 26], ["created_at", "2016-06-15 19:48:52.715974"], ["movie_id", 5], ["updated_at", "2016-06-15 19:48:52.715974"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 15], ["created_at", "2016-06-15 19:48:52.717058"], ["movie_id", 5], ["updated_at", "2016-06-15 19:48:52.717058"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 16], ["created_at", "2016-06-15 19:48:52.718122"], ["movie_id", 5], ["updated_at", "2016-06-15 19:48:52.718122"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 7], ["created_at", "2016-06-15 19:48:52.719175"], ["movie_id", 5], ["updated_at", "2016-06-15 19:48:52.719175"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 17], ["created_at", "2016-06-15 19:48:52.720236"], ["movie_id", 5], ["updated_at", "2016-06-15 19:48:52.720236"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 28], ["created_at", "2016-06-15 19:48:52.721296"], ["movie_id", 5], ["updated_at", "2016-06-15 19:48:52.721296"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 18], ["created_at", "2016-06-15 19:48:52.726392"], ["movie_id", 6], ["updated_at", "2016-06-15 19:48:52.726392"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 19], ["created_at", "2016-06-15 19:48:52.728695"], ["movie_id", 6], ["updated_at", "2016-06-15 19:48:52.728695"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 28], ["created_at", "2016-06-15 19:48:52.729761"], ["movie_id", 6], ["updated_at", "2016-06-15 19:48:52.729761"]]
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 16], ["created_at", "2016-06-15 19:48:52.730869"], ["movie_id", 6], ["updated_at", "2016-06-15 19:48:52.730869"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 7], ["created_at", "2016-06-15 19:48:52.732381"], ["movie_id", 6], ["updated_at", "2016-06-15 19:48:52.732381"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 17], ["created_at", "2016-06-15 19:48:52.733433"], ["movie_id", 6], ["updated_at", "2016-06-15 19:48:52.733433"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 15], ["created_at", "2016-06-15 19:48:52.734482"], ["movie_id", 6], ["updated_at", "2016-06-15 19:48:52.734482"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 27], ["created_at", "2016-06-15 19:48:52.735542"], ["movie_id", 6], ["updated_at", "2016-06-15 19:48:52.735542"]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 20], ["created_at", "2016-06-15 19:48:52.740349"], ["movie_id", 7], ["updated_at", "2016-06-15 19:48:52.740349"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 21], ["created_at", "2016-06-15 19:48:52.742527"], ["movie_id", 7], ["updated_at", "2016-06-15 19:48:52.742527"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 22], ["created_at", "2016-06-15 19:48:52.743588"], ["movie_id", 7], ["updated_at", "2016-06-15 19:48:52.743588"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 10], ["created_at", "2016-06-15 19:48:52.744643"], ["movie_id", 7], ["updated_at", "2016-06-15 19:48:52.744643"]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (2.4ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 20], ["created_at", "2016-06-15 19:48:52.750470"], ["movie_id", 8], ["updated_at", "2016-06-15 19:48:52.750470"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 9], ["created_at", "2016-06-15 19:48:52.754429"], ["movie_id", 8], ["updated_at", "2016-06-15 19:48:52.754429"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 23], ["created_at", "2016-06-15 19:48:52.755635"], ["movie_id", 8], ["updated_at", "2016-06-15 19:48:52.755635"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 24], ["created_at", "2016-06-15 19:48:52.756813"], ["movie_id", 8], ["updated_at", "2016-06-15 19:48:52.756813"]]
+  [1m[36m (5.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 5], ["created_at", "2016-06-15 19:48:52.765062"], ["movie_id", 9], ["updated_at", "2016-06-15 19:48:52.765062"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 9], ["created_at", "2016-06-15 19:48:52.768084"], ["movie_id", 9], ["updated_at", "2016-06-15 19:48:52.768084"]]
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 29], ["created_at", "2016-06-15 19:48:52.769313"], ["movie_id", 9], ["updated_at", "2016-06-15 19:48:52.769313"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 30], ["created_at", "2016-06-15 19:48:52.771156"], ["movie_id", 9], ["updated_at", "2016-06-15 19:48:52.771156"]]
+  [1m[36m (4.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.9ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 31], ["created_at", "2016-06-15 19:48:52.777598"], ["movie_id", 10], ["updated_at", "2016-06-15 19:48:52.777598"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 27], ["created_at", "2016-06-15 19:48:52.781550"], ["movie_id", 10], ["updated_at", "2016-06-15 19:48:52.781550"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["actor_id", 28], ["created_at", "2016-06-15 19:48:52.782871"], ["movie_id", 10], ["updated_at", "2016-06-15 19:48:52.782871"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "parts" ("actor_id", "created_at", "movie_id", "updated_at") VALUES (?, ?, ?, ?)  [["actor_id", 2], ["created_at", "2016-06-15 19:48:52.784060"], ["movie_id", 10], ["updated_at", "2016-06-15 19:48:52.784060"]]
+  [1m[36m (19.1ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/movies" for 68.207.236.160 at 2016-06-15 15:55:42 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (25.8ms)
+Completed 200 OK in 1210ms (Views: 1177.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/movies.css?body=1" for 68.207.236.160 at 2016-06-15 15:55:45 -0400
+
+
+Started GET "/assets/application.css?body=1" for 68.207.236.160 at 2016-06-15 15:55:45 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 68.207.236.160 at 2016-06-15 15:55:45 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 68.207.236.160 at 2016-06-15 15:55:45 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 68.207.236.160 at 2016-06-15 15:55:45 -0400
+
+
+Started GET "/assets/movies.js?body=1" for 68.207.236.160 at 2016-06-15 15:55:45 -0400
+
+
+Started GET "/assets/application.js?body=1" for 68.207.236.160 at 2016-06-15 15:55:45 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 68.207.236.160 at 2016-06-15 15:55:45 -0400
+
+
+Started GET "/movies" for 68.207.236.160 at 2016-06-15 15:56:14 -0400
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 68ms (Views: 67.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/movies.css?body=1" for 68.207.236.160 at 2016-06-15 15:56:14 -0400
+
+
+Started GET "/assets/application.css?body=1" for 68.207.236.160 at 2016-06-15 15:56:14 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 68.207.236.160 at 2016-06-15 15:56:14 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 68.207.236.160 at 2016-06-15 15:56:14 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 68.207.236.160 at 2016-06-15 15:56:14 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 68.207.236.160 at 2016-06-15 15:56:14 -0400
+
+
+Started GET "/assets/movies.js?body=1" for 68.207.236.160 at 2016-06-15 15:56:14 -0400
+
+
+Started GET "/assets/application.js?body=1" for 68.207.236.160 at 2016-06-15 15:56:15 -0400
+
+
+Started GET "/movies" for 68.207.236.160 at 2016-06-15 15:56:22 -0400
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 36ms (Views: 35.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 68.207.236.160 at 2016-06-15 15:56:22 -0400
+
+
+Started GET "/assets/movies.css?body=1" for 68.207.236.160 at 2016-06-15 15:56:22 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 68.207.236.160 at 2016-06-15 15:56:22 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 68.207.236.160 at 2016-06-15 15:56:22 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 68.207.236.160 at 2016-06-15 15:56:22 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 68.207.236.160 at 2016-06-15 15:56:22 -0400
+
+
+Started GET "/assets/movies.js?body=1" for 68.207.236.160 at 2016-06-15 15:56:22 -0400
+
+
+Started GET "/assets/application.js?body=1" for 68.207.236.160 at 2016-06-15 15:56:22 -0400
+
+
+Started GET "/movies" for 68.207.236.160 at 2016-06-15 15:56:38 -0400
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 36ms (Views: 35.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/movies.css?body=1" for 68.207.236.160 at 2016-06-15 15:56:38 -0400
+
+
+Started GET "/assets/application.css?body=1" for 68.207.236.160 at 2016-06-15 15:56:38 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 68.207.236.160 at 2016-06-15 15:56:38 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 68.207.236.160 at 2016-06-15 15:56:38 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 68.207.236.160 at 2016-06-15 15:56:38 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 68.207.236.160 at 2016-06-15 15:56:38 -0400
+
+
+Started GET "/assets/movies.js?body=1" for 68.207.236.160 at 2016-06-15 15:56:38 -0400
+
+
+Started GET "/assets/application.js?body=1" for 68.207.236.160 at 2016-06-15 15:56:38 -0400
+
+
+Started GET "/movies" for 68.207.236.160 at 2016-06-15 15:57:07 -0400
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 69ms (Views: 68.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 68.207.236.160 at 2016-06-15 15:57:07 -0400
+
+
+Started GET "/assets/movies.css?body=1" for 68.207.236.160 at 2016-06-15 15:57:07 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:07 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:07 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:07 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:07 -0400
+
+
+Started GET "/assets/movies.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:07 -0400
+
+
+Started GET "/assets/application.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:07 -0400
+
+
+Started GET "/movies" for 68.207.236.160 at 2016-06-15 15:57:10 -0400
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 36ms (Views: 35.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/movies.css?body=1" for 68.207.236.160 at 2016-06-15 15:57:11 -0400
+
+
+Started GET "/assets/application.css?body=1" for 68.207.236.160 at 2016-06-15 15:57:11 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:11 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:11 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:11 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:11 -0400
+
+
+Started GET "/assets/movies.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:11 -0400
+
+
+Started GET "/assets/application.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:11 -0400
+
+
+Started GET "/movies" for 68.207.236.160 at 2016-06-15 15:57:12 -0400
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.2ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 68ms (Views: 66.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/movies.css?body=1" for 68.207.236.160 at 2016-06-15 15:57:13 -0400
+
+
+Started GET "/assets/application.css?body=1" for 68.207.236.160 at 2016-06-15 15:57:13 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:13 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:13 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:13 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:13 -0400
+
+
+Started GET "/assets/application.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:13 -0400
+
+
+Started GET "/assets/movies.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:13 -0400
+
+
+Started GET "/movies" for 68.207.236.160 at 2016-06-15 15:57:19 -0400
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (3.6ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 63ms (Views: 59.0ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/assets/movies.css?body=1" for 68.207.236.160 at 2016-06-15 15:57:19 -0400
+
+
+Started GET "/assets/jquery.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:19 -0400
+
+
+Started GET "/assets/application.css?body=1" for 68.207.236.160 at 2016-06-15 15:57:19 -0400
+
+
+Started GET "/assets/turbolinks.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:19 -0400
+
+
+Started GET "/assets/communication.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:19 -0400
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:19 -0400
+
+
+Started GET "/assets/movies.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:19 -0400
+
+
+Started GET "/assets/application.js?body=1" for 68.207.236.160 at 2016-06-15 15:57:19 -0400
+
+
+Started GET "/movies" for 68.207.236.160 at 2016-06-15 15:57:22 -0400
+Processing by MoviesController#index as HTML
+  [1m[35mMovie Load (0.3ms)[0m  SELECT "movies".* FROM "movies"
+  Rendered movies/index.html.erb within layouts/application (1.6ms)
